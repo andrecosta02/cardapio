@@ -6,7 +6,7 @@ const list = [{
         product: "Lasanha",
         path: "imagens/lasanha.jpg",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: 2,
+        price: 25.00,
 
     },
     {
