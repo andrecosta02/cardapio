@@ -32,10 +32,10 @@ const list = [{
     },
     {
         id: 4,
-        product: "Lasanha",
-        path: "imagens/lasanha.jpg",
+        product: "Parmegiana",
+        path: "imagens/parmegianafrango.jpg",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
+        price: "18,00",
     },
     {
         id: 5,
