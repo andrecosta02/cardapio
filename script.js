@@ -25,10 +25,10 @@ const list = [{
     },
     {
         id: 3,
-        product: "Lasanha",
-        path: "imagens/lasanha.jpg",
+        product: "Peixe Frito",
+        path: "imagens/peixefrito.jpg",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
+        price: "20,00",
     },
     {
         id: 4,
