@@ -1,4 +1,4 @@
-let ShoppingBag = document.getElementById('ShoppingBag')
+let boxMenu = document.getElementById('boxMenu')
 
 
 const list = [{
@@ -61,7 +61,7 @@ const list = [{
 const ShowProdutcNames = (users) => {
     users.forEach((list) => {
 
-        ShoppingBag.innerHTML += (`
+        boxMenu.innerHTML += (`
 
         <section class="card">
             <div class="divFoto">
