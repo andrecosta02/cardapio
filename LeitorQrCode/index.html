@@ -11,32 +11,28 @@
 </head>
 <body>
   <h1>Leitor de QR Code</h1>
-  <button onclick="scanQRCode()">Abrir Câmera</button>
+  <button onclick="openCamera()">Abrir Câmera</button>
   <br>
   <output id="output"></output>
 
   <script>
-    function scanQRCode() {
+    function openCamera() {
       var outputElement = document.getElementById("output");
       
-      // Verifica se o navegador suporta a API do leitor de QR Code
-      if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      // Verifica se o navegador suporta a API de mídia
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Solicita acesso à câmera
+        navigator.mediaDevices.getUserMedia({ video: true })
           .then(function(stream) {
-            // Cria um elemento de vídeo para exibir a câmera
             var video = document.createElement('video');
-            video.setAttribute('autoplay', '');
-            video.setAttribute('playsinline', '');
             video.srcObject = stream;
-            document.body.appendChild(video);
+            video.play();
             
             // Cria um canvas para capturar os quadros da câmera
             var canvas = document.createElement('canvas');
             canvas.style.display = 'none';
             document.body.appendChild(canvas);
             var canvasContext = canvas.getContext('2d');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
             
             // Função para capturar um quadro da câmera e ler o código QR
             function captureFrame() {
@@ -66,9 +62,10 @@
           })
           .catch(function(error) {
             console.error('Erro ao acessar a câmera: ', error);
+            outputElement.textContent = 'Erro ao acessar a câmera.';
           });
       } else {
-        outputElement.textContent = 'O navegador não suporta a API do leitor de QR Code.';
+        outputElement.textContent = 'O navegador não suporta a API de mídia.';
       }
     }
   </script>
