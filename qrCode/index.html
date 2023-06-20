@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de QR Codes</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>Gerador de QR Codes</h1>
+    <label for="start-input">Número inicial:</label>
+    <input type="number" id="start-input" placeholder="Número inicial">
+    <br>
+    <label for="end-input">Número final:</label>
+    <input type="number" id="end-input" placeholder="Número final">
+    <br>
+    <button onclick="generateQRCodes()">Gerar QR Codes</button>
+    <br>
+    <div id="qrcodes"></div>
+    <br>
+    <button onclick="printQRCodes()">Imprimir</button>
+
+    <script>
+        function generateQRCodes() {
+            var start = parseInt(document.getElementById("start-input").value);
+            var end = parseInt(document.getElementById("end-input").value);
+            var container = document.getElementById("qrcodes");
+            container.innerHTML = '';
+
+            if (start && end && start <= end) {
+                for (var i = start; i <= end; i++) {
+                    var qrContainer = document.createElement("div");
+                    qrContainer.classList.add("qrcode-item");
+                    var qrCode = new QRCode(qrContainer, {
+                        text: String(i),
+                        width: 128,
+                        height: 128
+                    });
+
+                    var qrNumber = document.createElement("div");
+                    qrNumber.classList.add("qrcode-number");
+                    qrNumber.innerText = "MESA: " + i;
+
+                    qrContainer.appendChild(qrNumber);
+                    container.appendChild(qrContainer);
+                }
+            } else {
+                container.innerHTML = 'Insira um número inicial válido e um número final maior ou igual ao número inicial.';
+            }
+        }
+
+        function printQRCodes() {
+            var originalContents = document.body.innerHTML;
+            var printContents = document.getElementById("qrcodes").innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+
+    <style>
+        .qrcode-item {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+            background-color: rgb(70, 142, 236);
+            width: 138px;
+        }
+
+        .qrcode-number {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #qrcodes {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .qrcode-item {
+                background-color: rgb(70, 142, 236) !important;
+                border: 2px solid black !important;
+                margin: 10px !important;
+                width: 138px;
+                page-break-inside: avoid;
+            }
+
+            .qrcode-number {
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+            .qrcode-item::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgb(70, 142, 236);
+                z-index: -1;
+            }
+        }
+    </style>
+</body>
+</html>
