@@ -1,3 +1,23 @@
+        
+        // HTML: <button id="voltarAoTopo" disabled>Voltar ao Topo</button>
+        //Botão para voltar ao topo do site lentamente
+        const btn = document.querySelector("#voltarAoTopo");
+
+        function handleClick() {
+            window.scroll({
+                top: 0,
+                behavior: "smooth",
+            })
+        }
+        //Para ser colocar dentro de uma função para ativar o botão 
+        // document.getElementById("voltarAoTopo").disabled = false;
+        
+        btn.addEventListener("click", handleClick);
+
+
+
+
+
 function generateQRCodes() {
     var startMesa = parseInt(document.getElementById('startMesa').value);
     var endMesa = parseInt(document.getElementById('endMesa').value);
@@ -33,6 +53,8 @@ function generateQRCodes() {
         qrcodeGroup.appendChild(mesaQRCodeContainer);
 
         qrcodeContainer.appendChild(qrcodeGroup);
+
+        document.getElementById("voltarAoTopo").disabled = false;
     }
 }
 
@@ -42,3 +64,6 @@ document.getElementById('endMesa').addEventListener('keyup', function(event) {
         generateQRCodes();
     }
 });
+
+
+
