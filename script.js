@@ -203,9 +203,8 @@ const ShowProdutcNames = (users) => {
             </div>
 
             <div class="prato">
-                <h2>${list.product} 
-                <br>
-                R$ ${list.price}</h2>
+                <h2>${list.product}</h2>
+                <h3>R$ ${list.price}</h3>
                 <p>${list.description}</p>
             </div>
         </section>
