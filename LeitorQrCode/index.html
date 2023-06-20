@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leitor de QR Code</title>
+  <style>
+    #output {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leitor de QR Code</h1>
+  <button onclick="scanQRCode()">Abrir Câmera</button>
+  <br>
+  <output id="output"></output>
+
+  <script>
+    function scanQRCode() {
+      var outputElement = document.getElementById("output");
+      
+      // Verifica se o navegador suporta a API do leitor de QR Code
+      if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+          .then(function(stream) {
+            // Cria um elemento de vídeo para exibir a câmera
+            var video = document.createElement('video');
+            video.setAttribute('autoplay', '');
+            video.setAttribute('playsinline', '');
+            video.srcObject = stream;
+            document.body.appendChild(video);
+            
+            // Cria um canvas para capturar os quadros da câmera
+            var canvas = document.createElement('canvas');
+            canvas.style.display = 'none';
+            document.body.appendChild(canvas);
+            var canvasContext = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            
+            // Função para capturar um quadro da câmera e ler o código QR
+            function captureFrame() {
+              canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+              var imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+              
+              // Utilize aqui uma biblioteca JS para leitura do QR Code, como por exemplo 'jsQR'
+              // Supondo que já tenha importado a biblioteca corretamente
+              var qrCode = jsQR(imageData.data, imageData.width, imageData.height);
+              
+              // Verifica se foi lido um código QR
+              if (qrCode) {
+                outputElement.textContent = qrCode.data;
+                
+                // Pausa a câmera e remove os elementos de vídeo e canvas
+                stream.getTracks()[0].stop();
+                video.remove();
+                canvas.remove();
+              }
+              
+              // Executa a captura do próximo quadro
+              requestAnimationFrame(captureFrame);
+            }
+            
+            // Inicia a captura de quadros da câmera
+            requestAnimationFrame(captureFrame);
+          })
+          .catch(function(error) {
+            console.error('Erro ao acessar a câmera: ', error);
+          });
+      } else {
+        outputElement.textContent = 'O navegador não suporta a API do leitor de QR Code.';
+      }
+    }
+  </script>
+</body>
+</html>
