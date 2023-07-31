@@ -229,12 +229,12 @@ ShowProdutcNames(list)
 
 const changeThemeBtn = document.querySelector("#change-theme")
 
-// Toggle dark mode
+// Carrega o lightmode
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
 }
 
-// Load light or dark mode
+// Carrega de lightmode para darkmode
 function loadTheme() {
   const darkMode = localStorage.getItem("dark");
 
@@ -247,11 +247,10 @@ loadTheme();
 changeThemeBtn.addEventListener("change", function () {
   toggleDarkMode();
 
-  // Save or remove dark mode from localStorage
+  // Carrega ou remove o darkmode conforme o localstorage
   localStorage.removeItem("dark");
 
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("dark", 1);
   }
 });
-
