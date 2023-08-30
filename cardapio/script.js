@@ -3,7 +3,7 @@ let boxMenu = document.getElementById('boxMenu')
 
 const list = [{
         id: 1,
-        product: "Lasanha",
+        product: "Brigadeiro",
         path: "imagens/lasanha.jpg",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
         price: "25,00",
@@ -11,7 +11,7 @@ const list = [{
     },
     {
         id: 2,
-        product: "Macarrão",
+        product: "Beijinho",
         path: "imagens/macarrao.png",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
         price: "15,00",
@@ -46,139 +46,6 @@ const list = [{
     },
 
 
-    /* --- EXCLUIR --- */
-
-
-
-    {
-        id: 1,
-        product: "Lasanha",
-        path: "imagens/lasanha.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-
-    },
-    {
-        id: 2,
-        product: "Macarrão",
-        path: "imagens/macarrao.png",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "15,00",
-    },
-    {
-        id: 3,
-        product: "Hamburguer",
-        path: "imagens/hamburguer.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "17,00",
-    },
-    {
-        id: 4,
-        product: "Peixe Frito",
-        path: "imagens/peixefrito.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "20,00",
-    },
-    {
-        id: 5,
-        product: "Parmegiana",
-        path: "imagens/parmegianafrango.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "18,00",
-    },
-    {
-        id: 6,
-        product: "Arrumadinho",
-        path: "imagens/arrumadinho.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-    },
-    {
-        id: 1,
-        product: "Lasanha",
-        path: "imagens/lasanha.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-
-    },
-    {
-        id: 2,
-        product: "Macarrão",
-        path: "imagens/macarrao.png",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "15,00",
-    },
-    {
-        id: 3,
-        product: "Hamburguer",
-        path: "imagens/hamburguer.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "17,00",
-    },
-    {
-        id: 4,
-        product: "Peixe Frito",
-        path: "imagens/peixefrito.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "20,00",
-    },
-    {
-        id: 5,
-        product: "Parmegiana",
-        path: "imagens/parmegianafrango.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "18,00",
-    },
-    {
-        id: 6,
-        product: "Arrumadinho",
-        path: "imagens/arrumadinho.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-    },
-    {
-        id: 1,
-        product: "Lasanha",
-        path: "imagens/lasanha.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-
-    },
-    {
-        id: 2,
-        product: "Macarrão",
-        path: "imagens/macarrao.png",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "15,00",
-    },
-    {
-        id: 3,
-        product: "Hamburguer",
-        path: "imagens/hamburguer.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "17,00",
-    },
-    {
-        id: 4,
-        product: "Peixe Frito",
-        path: "imagens/peixefrito.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "20,00",
-    },
-    {
-        id: 5,
-        product: "Parmegiana",
-        path: "imagens/parmegianafrango.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "18,00",
-    },
-    {
-        id: 6,
-        product: "Arrumadinho",
-        path: "imagens/arrumadinho.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        price: "25,00",
-    },
     /*{
         product: "",
         Emoji: "",
